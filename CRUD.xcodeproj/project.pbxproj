@@ -8,21 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		435C02452936F75500D39722 /* CRUDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C02442936F75500D39722 /* CRUDApp.swift */; };
-		435C02472936F75500D39722 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C02462936F75500D39722 /* ContentView.swift */; };
+		435C02472936F75500D39722 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C02462936F75500D39722 /* TaskListView.swift */; };
 		435C02492936F75700D39722 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435C02482936F75700D39722 /* Assets.xcassets */; };
 		435C024C2936F75700D39722 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435C024B2936F75700D39722 /* Preview Assets.xcassets */; };
 		435C024E2936F75700D39722 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C024D2936F75700D39722 /* Persistence.swift */; };
 		435C02512936F75700D39722 /* CRUD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 435C024F2936F75700D39722 /* CRUD.xcdatamodeld */; };
+		435C025829370AB400D39722 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C025729370AB400D39722 /* FloatingButton.swift */; };
+		435C025D29370B6900D39722 /* TaskEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C025C29370B6900D39722 /* TaskEditView.swift */; };
+		435C026029371E2F00D39722 /* DateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C025F29371E2F00D39722 /* DateHolder.swift */; };
+		435C02622937255A00D39722 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C02612937255A00D39722 /* TaskCell.swift */; };
+		435C02642937275700D39722 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C02632937275700D39722 /* CheckBoxView.swift */; };
+		435C0267293728FC00D39722 /* TaskItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435C0266293728FC00D39722 /* TaskItemExtension.swift */; };
+		43D513BB2937EC9300E06029 /* DateScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D513BA2937EC9300E06029 /* DateScroller.swift */; };
+		43D513BD2937FD5900E06029 /* TaskFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D513BC2937FD5900E06029 /* TaskFill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		435C02412936F75500D39722 /* CRUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435C02442936F75500D39722 /* CRUDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDApp.swift; sourceTree = "<group>"; };
-		435C02462936F75500D39722 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		435C02462936F75500D39722 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		435C02482936F75700D39722 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435C024B2936F75700D39722 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		435C024D2936F75700D39722 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		435C02502936F75700D39722 /* CRUD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CRUD.xcdatamodel; sourceTree = "<group>"; };
+		435C025729370AB400D39722 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		435C025C29370B6900D39722 /* TaskEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditView.swift; sourceTree = "<group>"; };
+		435C025F29371E2F00D39722 /* DateHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolder.swift; sourceTree = "<group>"; };
+		435C02612937255A00D39722 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		435C02632937275700D39722 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		435C0266293728FC00D39722 /* TaskItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemExtension.swift; sourceTree = "<group>"; };
+		43D513BA2937EC9300E06029 /* DateScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScroller.swift; sourceTree = "<group>"; };
+		43D513BC2937FD5900E06029 /* TaskFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +71,11 @@
 		435C02432936F75500D39722 /* CRUD */ = {
 			isa = PBXGroup;
 			children = (
+				435C0265293728D200D39722 /* Model */,
+				435C025F29371E2F00D39722 /* DateHolder.swift */,
+				435C025929370AE700D39722 /* Views */,
 				435C02442936F75500D39722 /* CRUDApp.swift */,
-				435C02462936F75500D39722 /* ContentView.swift */,
 				435C02482936F75700D39722 /* Assets.xcassets */,
-				435C024D2936F75700D39722 /* Persistence.swift */,
 				435C024F2936F75700D39722 /* CRUD.xcdatamodeld */,
 				435C024A2936F75700D39722 /* Preview Content */,
 			);
@@ -71,6 +88,29 @@
 				435C024B2936F75700D39722 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		435C025929370AE700D39722 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				435C025729370AB400D39722 /* FloatingButton.swift */,
+				435C02462936F75500D39722 /* TaskListView.swift */,
+				435C025C29370B6900D39722 /* TaskEditView.swift */,
+				435C02612937255A00D39722 /* TaskCell.swift */,
+				435C02632937275700D39722 /* CheckBoxView.swift */,
+				43D513BA2937EC9300E06029 /* DateScroller.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		435C0265293728D200D39722 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				435C024D2936F75700D39722 /* Persistence.swift */,
+				435C0266293728FC00D39722 /* TaskItemExtension.swift */,
+				43D513BC2937FD5900E06029 /* TaskFill.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435C026029371E2F00D39722 /* DateHolder.swift in Sources */,
+				435C0267293728FC00D39722 /* TaskItemExtension.swift in Sources */,
 				435C024E2936F75700D39722 /* Persistence.swift in Sources */,
-				435C02472936F75500D39722 /* ContentView.swift in Sources */,
+				43D513BD2937FD5900E06029 /* TaskFill.swift in Sources */,
+				435C02472936F75500D39722 /* TaskListView.swift in Sources */,
+				435C025829370AB400D39722 /* FloatingButton.swift in Sources */,
+				435C02642937275700D39722 /* CheckBoxView.swift in Sources */,
+				435C02622937255A00D39722 /* TaskCell.swift in Sources */,
+				43D513BB2937EC9300E06029 /* DateScroller.swift in Sources */,
+				435C025D29370B6900D39722 /* TaskEditView.swift in Sources */,
 				435C02452936F75500D39722 /* CRUDApp.swift in Sources */,
 				435C02512936F75700D39722 /* CRUD.xcdatamodeld in Sources */,
 			);

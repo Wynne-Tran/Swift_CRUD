@@ -10,46 +10,78 @@ import CoreData
 
 struct TaskListView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var dateHolder: DateHolder
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \TaskItems.dueDate, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<TaskItems>
+    @State var selectedFilter = TaskFilter.NonCompleted
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \TaskItems.dueDate, ascending: true)],
+//        animation: .default)
+//    
+//    private var items: FetchedResults<TaskItems>
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.dueDate!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.dueDate!, formatter: itemFormatter)
+            
+            VStack{
+                DateScroller()
+                    .padding()
+                    .environmentObject(dateHolder)
+                ZStack {
+                    List {
+                        ForEach(filterdTaskItems()) { item in
+                            NavigationLink(destination: TaskEditView(passedTaskItem: item, initialDate: Date()).environmentObject(dateHolder))
+                            {
+                                TaskCell(passedTaskItem: item).environmentObject(dateHolder)
+                                
+                            }
+                        }
+                        .onDelete(perform: deleteItems)
                     }
+//                    .toolbar {
+//                        ToolbarItem(placement: .navigationBarTrailing) {
+//                            EditButton()
+//                        }
+//                    }
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Picker("", selection: $selectedFilter.animation()) {
+                                ForEach(TaskFilter.allFilters, id: \.self) {
+                                    filter in Text(filter.rawValue)
+                                }
+                            }                        }
+                    }
+                    FloatingButton().environmentObject(dateHolder)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-            }
-            Text("Select an item")
+                    
+                }.navigationTitle("To Do List")
         }
     }
+    
+    private func filterdTaskItems() -> [TaskItems] {
+        if selectedFilter == TaskFilter.Completed {
+            return dateHolder.taskItems.filter{
+                $0.isCompleted()
+            }
+        }
+        if selectedFilter == TaskFilter.NonCompleted {
+            return dateHolder.taskItems.filter {
+                !$0.isCompleted()
+            }
+        }
+        if selectedFilter == TaskFilter.OverDue {
+            return dateHolder.taskItems.filter{
+                $0.isOverDue()
+            }
+        }
+        return dateHolder.taskItems
+    }
 
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { dateHolder.taskItems[$0] }.forEach(viewContext.delete)
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            dateHolder.saveContext(viewContext)
         }
     }
 }

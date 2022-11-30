@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct CheckBoxView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var dateHolder: DateHolder
+    @ObservedObject var passedTaskItem: TaskItems
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: passedTaskItem.isCompleted() ? "checkmark.circle.fill" : "circle")
+            .foregroundColor(passedTaskItem.isCompleted() ? .green : .secondary)
+            .onTapGesture {
+                if !passedTaskItem.isCompleted() {
+                    passedTaskItem.completedDate = Date()
+                    dateHolder.saveContext(viewContext)
+                }
+            }
     }
 }
 
 struct CheckBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckBoxView()
+        CheckBoxView(passedTaskItem: TaskItems())
     }
 }
